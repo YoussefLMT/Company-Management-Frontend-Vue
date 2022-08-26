@@ -1,24 +1,20 @@
 <template>
 <section class="main">
     <div class="auth-content">
-
-        <form action="loguser.php" method="post">
+        <form>
             <h2 class="form-title">Login</h2>
-
             <div>
-                <label>Username</label>
-                <input type="text" name="username" class="text-input" required>
+                <label>Email</label>
+                <input type="email" name="email" class="text-input">
             </div>
             <div>
                 <label>Password</label>
-                <input type="password" name="password" class="text-input" required>
+                <input type="password" name="password" class="text-input">
             </div>
             <div>
-                <button type="submit" name="login-btn" class="btn btn-big">Login</button>
+                <button type="button" class="btn">Login</button>
             </div>
-            <p>Or <a href="register.php">Sign Up</a></p>
         </form>
-
     </div>
 </section>
 </template>
@@ -38,23 +34,32 @@ export default {
     height: 100vh;
 }
 
-.btn {
-    padding: 10px 5px;
-    background: #3498db;
-    color: white;
-    border: 1px solid transparent;
+.auth-content {
+    width: 30%;
+    padding: 20px;
+    background: white;
     border-radius: 5px;
-    font-size: 18px;
-    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
-.btn-big {
-    padding: 10px 10px;
+.auth-content .form-title {
+    text-align: center;
+    margin-bottom: 30px;
 }
 
-.btn:hover {
-    color: white;
-    background: #005255;
+.auth-content form div {
+    margin-bottom: 20px;
+}
+
+.auth-content form p {
+    text-align: center;
+}
+
+.auth-content form p a {
+    text-decoration: underline;
 }
 
 .text-input {
@@ -72,31 +77,20 @@ export default {
     border: 3px solid #006669;
 }
 
-.auth-content {
-    width: 30%;
-    padding: 20px;
-    background: white;
+.btn {
+    padding: 10px 5px;
+    margin-top: 20px;
+    width: 100%;
+    background: #3498db;
+    color: white;
+    font-weight: bold;
+    border: 1px solid transparent;
     border-radius: 5px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
+    font-size: 18px;
+    cursor: pointer;
 }
 
-.auth-content .form-title {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.auth-content form div {
-    margin-bottom: 10px;
-}
-
-.auth-content form p {
-    text-align: center;
-}
-
-.auth-content form p a {
-    text-decoration: underline;
+.btn:hover {
+    background: #0984e3;
 }
 </style>
