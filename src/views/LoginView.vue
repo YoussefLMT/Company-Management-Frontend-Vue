@@ -5,11 +5,11 @@
             <h2 class="form-title">Login</h2>
             <div>
                 <label>Email</label>
-                <input type="email" name="email" class="text-input">
+                <input type="email" v-model="email" name="email" class="text-input">
             </div>
             <div>
                 <label>Password</label>
-                <input type="password" name="password" class="text-input">
+                <input type="password" v-model="password" name="password" class="text-input">
             </div>
             <div>
                 <button type="button" class="btn">Login</button>
@@ -22,6 +22,14 @@
 <script>
 export default {
     name: 'LoginView',
+    data() {
+        return {
+            email: '',
+            password: '',
+            message: '',
+            errors: ''
+        }
+    },
 }
 </script>
 
