@@ -3,13 +3,20 @@
     <div class="auth-content">
         <form>
             <h2 class="form-title">Login</h2>
+            <div class="alert alert-danger" v-if="message">
+                {{ message }}
+            </div>
             <div>
                 <label>Email</label>
                 <input v-model="email" type="email" name="email" class="text-input">
+                <span class="text-danger" v-if="errors.email">{{ errors.email[0] }}</span>
+
             </div>
             <div>
                 <label>Password</label>
                 <input v-model="password" type="password" name="password" class="text-input">
+                <span class="text-danger" v-if="errors.password">{{ errors.password[0] }}</span>
+
             </div>
             <div>
                 <button type="button" @click="login" class="btn">Login</button>
@@ -41,22 +48,17 @@ export default {
                 })
 
                 if (response.data.status === 401) {
-                    // this.message = response.data.message
-                    console.log(response.data.message)
+
+                    this.message = response.data.message
 
                 } else if (response.data.status === 200) {
 
-                    console.log(response.data.message)
-
                     // this.$router.push('/dashboard')
-                    // store.commit('setUserRole', response.data.role)
                     // store.state.user.data.token = response.data.token
-                    // localStorage.setItem('token', response.data.token)
-                    // localStorage.setItem('role', response.data.role)
+                    localStorage.setItem('token', response.data.token)
 
                 } else {
-                    // this.errors = response.data.validation_err
-                    console.log(response.data.validation_err)
+                    this.errors = response.data.validation_err
 
                 }
             } catch (error) {
