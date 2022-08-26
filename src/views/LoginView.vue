@@ -1,5 +1,8 @@
 <template>
 <div class="login">
+    <div class="right-side">
+        <img src="@/assets/undraw_login_re_4vu2.svg">
+    </div>
     <form>
         <p>LOGIN</p>
         <input type="email" placeholder="Enter your email">
@@ -18,11 +21,8 @@ export default {
 <style scoped>
 .login {
     display: flex;
-    width: 800px;
-    height: 500px;
-    border: 1px solid black;
-    margin: auto;
-    margin-top: 50px;
+    width: 100vw;
+    height: 100vh;
 }
 
 form {
@@ -63,5 +63,17 @@ form button {
 
 form button:hover {
     background-color: #ccc;
+}
+
+.right-side {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}
+
+.right-side img {
+    width: 450px;
+    height: 450px;
 }
 </style>
