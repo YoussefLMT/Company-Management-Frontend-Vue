@@ -1,15 +1,26 @@
 <template>
-<div class="login">
-    <div class="right-side">
-        <img src="@/assets/undraw_login_re_4vu2.svg">
+<section class="main">
+    <div class="auth-content">
+
+        <form action="loguser.php" method="post">
+            <h2 class="form-title">Login</h2>
+
+            <div>
+                <label>Username</label>
+                <input type="text" name="username" class="text-input" required>
+            </div>
+            <div>
+                <label>Password</label>
+                <input type="password" name="password" class="text-input" required>
+            </div>
+            <div>
+                <button type="submit" name="login-btn" class="btn btn-big">Login</button>
+            </div>
+            <p>Or <a href="register.php">Sign Up</a></p>
+        </form>
+
     </div>
-    <form>
-        <p>LOGIN</p>
-        <input type="email" placeholder="Enter your email">
-        <input type="password" placeholder="Enter your password">
-        <button type="button">Login</button>
-    </form>
-</div>
+</section>
 </template>
 
 <script>
@@ -19,61 +30,11 @@ export default {
 </script>
 
 <style scoped>
-.login {
-    display: flex;
-    width: 100vw;
+.main{
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("@/assets/company.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
     height: 100vh;
-}
-
-form {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    width: 50%;
-    background-color: aqua;
-}
-
-form p {
-    font-size: 30px;
-    font-weight: 700;
-    margin-top: 40px;
-}
-
-form input {
-    padding: 12px;
-    width: 65%;
-    margin: 15px;
-    border: 1px solid black;
-    outline: none;
-    border-radius: 20px;
-}
-
-form button {
-    padding: 12px 30px;
-    width: 40%;
-    margin-top: 40px;
-    background-color: black;
-    font-weight: bold;
-    border: none;
-    outline: none;
-    border-radius: 20px;
-    cursor: pointer;
-    color: white;
-}
-
-form button:hover {
-    background-color: #ccc;
-}
-
-.right-side {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50%;
-}
-
-.right-side img {
-    width: 450px;
-    height: 450px;
-}
+    }
 </style>
