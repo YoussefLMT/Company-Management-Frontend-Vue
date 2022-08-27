@@ -23,9 +23,9 @@
             <span class="material-icons">group</span>
             <span class="text">users</span>
         </router-link>
-        <router-link to="/contact" class="link">
-            <span class="material-icons">email</span>
-            <span class="text">Contact</span>
+        <router-link to="/deprtments" class="link">
+            <span class="material-icons">badge</span>
+            <span class="text">Deprtments</span>
         </router-link>
     </div>
 
