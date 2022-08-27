@@ -1,6 +1,10 @@
 <template>
 <div class="app">
     <SideBar />
+    <main>
+        <h1>Dashboard</h1>
+        <p>this is a dashboard page</p>
+    </main>
 </div>
 </template>
 

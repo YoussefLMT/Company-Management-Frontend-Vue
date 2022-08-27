@@ -125,6 +125,14 @@ aside .menu-toggle-wrap .material-icons {
     flex: 1 1 0;
 }
 
+button {
+    cursor: pointer;
+    appearance: none;
+    border: none;
+    outline: none;
+    background: none;
+}
+
 @media (max-width: 768px) {
     aside {
         position: fixed;
