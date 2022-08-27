@@ -28,6 +28,7 @@
 
 <script>
 import axiosInstance from '../axios'
+import store from '@/store'
 
 export default {
     name: 'LoginView',
