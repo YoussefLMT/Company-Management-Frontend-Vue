@@ -1,16 +1,16 @@
 <template>
-  <router-view/>
+<router-view />
 </template>
 
 <style>
 #app {
-  font-family: 'Roboto', sans-serif;
+    font-family: 'Fira sans', sans-serif;
 }
 
-*{
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
 
 :root {
