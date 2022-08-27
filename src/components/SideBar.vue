@@ -11,9 +11,9 @@
     </div>
 
     <div class="menu">
-        <router-link to="/" class="link">
+        <router-link to="/dashbord" class="link">
             <span class="material-icons">home</span>
-            <span class="text">Home</span>
+            <span class="text">dashbord</span>
         </router-link>
         <router-link to="/about" class="link">
             <span class="material-icons">description</span>
