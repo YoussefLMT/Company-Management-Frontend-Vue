@@ -11,7 +11,7 @@
     </div>
 
     <div class="menu">
-        <router-link to="/dashbord" class="link">
+        <router-link to="/dashboard" class="link">
             <span class="material-icons">home</span>
             <span class="text">dashbord</span>
         </router-link>

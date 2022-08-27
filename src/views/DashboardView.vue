@@ -21,6 +21,7 @@ export default {
 <style>
 .app {
     display: flex;
+    background: var(--light);
 }
 
 .app main {
