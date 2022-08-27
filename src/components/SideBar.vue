@@ -42,7 +42,17 @@
 
 <script>
 export default {
-    
+    data() {
+        return {
+            isExpanded: localStorage.getItem('is_expanded') === 'true'
+        }
+    },
+    methods: {
+        ToggleSideBar() {
+            this.isExpanded = !this.isExpanded
+            localStorage.setItem('is_expanded', this.isExpanded)
+        }
+    }
 }
 </script>
 
