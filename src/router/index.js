@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import LoginView from '../views/LoginView.vue'
 import DashboardView from '../views/DashboardView.vue'
+import DepartmentsView from '../views/DepartmentsView.vue'
 import store from '../store';
 
 
@@ -14,6 +15,14 @@ const routes = [
     path: '/dashboard',
     name: 'dashboard',
     component: DashboardView,
+    meta:{
+      requiresAuth: true
+    }
+  },
+  {
+    path: '/deprtments',
+    name: 'deprtments',
+    component: DepartmentsView,
     meta:{
       requiresAuth: true
     }
