@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import axios from 'axios'
+import axiosInstance from '../axios'
 
 export default {
     name: 'LoginView',
@@ -42,7 +42,7 @@ export default {
     methods: {
         async login() {
             try {
-                const response = await axios.post("http://127.0.0.1:8000/api/login", {
+                const response = await axiosInstance.post("/login", {
                     email: this.email,
                     password: this.password
                 })
@@ -54,12 +54,11 @@ export default {
                 } else if (response.data.status === 200) {
 
                     this.$router.push('/dashboard')
-                    store.state.user.data.token = response.data.token
+                    store.state.user.token = response.data.token
                     localStorage.setItem('token', response.data.token)
 
                 } else {
                     this.errors = response.data.validation_err
-
                 }
             } catch (error) {
                 console.log(error)
