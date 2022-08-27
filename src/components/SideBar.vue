@@ -46,6 +46,79 @@ export default {
 }
 </script>
 
-<style>
-    
+<style scoped>
+aside {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--dark);
+    color: var(--light);
+    width: calc(32px + 32px);
+    overflow: hidden;
+    min-height: 100vh;
+    padding: 16px;
+    transition: 0.2s ease-out;
+}
+
+aside .logo {
+    margin-bottom: 16px;
+}
+
+aside .logo img {
+    width: 32px;
+}
+
+.is-expanded {
+    width: var(--sidebar-width);
+}
+
+aside .menu-toggle-wrap {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 16px;
+}
+
+aside .menu-toggle-wrap .material-icons {
+    font-size: 32px;
+    color: var(--light);
+}
+
+.is-expanded .menu-toggle {
+    transform: rotate(180deg);
+}
+
+.menu {
+    margin: 0 -16px;
+}
+
+.menu .link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    padding: 8px 16px;
+}
+
+.menu .material-icons {
+    font-size: 32px;
+    color: var(--light);
+    margin-right: 16px;
+}
+
+.menu .text {
+    color: var(--light);
+}
+
+.menu .link:hover {
+    background-color: var(--dark-alt);
+}
+
+.flex {
+    flex: 1 1 0;
+}
+
+@media (max-width: 768px) {
+    aside {
+        position: fixed;
+        z-index: 99;
+    }
+}
 </style>
