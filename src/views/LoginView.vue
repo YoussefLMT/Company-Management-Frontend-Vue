@@ -53,8 +53,8 @@ export default {
 
                 } else if (response.data.status === 200) {
 
-                    // this.$router.push('/dashboard')
-                    // store.state.user.data.token = response.data.token
+                    this.$router.push('/dashboard')
+                    store.state.user.data.token = response.data.token
                     localStorage.setItem('token', response.data.token)
 
                 } else {
