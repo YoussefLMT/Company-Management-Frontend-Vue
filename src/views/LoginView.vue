@@ -40,6 +40,11 @@ export default {
             errors: ''
         }
     },
+    mounted(){
+        if(store.state.user.token){
+            this.$router.push('/dashboard')
+        }
+    },
     methods: {
         async login() {
             try {
