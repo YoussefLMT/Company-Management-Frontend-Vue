@@ -43,13 +43,13 @@
                         <form>
                             <div class="mb-3">
                                 <label for="name" class="form-label">Department Name</label>
-                                <input type="text" class="form-control" id="name" >
+                                <input type="text" class="form-control" id="name" v-model="name">
                             </div>
                         </form>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" @click="addNewDepartment" class="btn btn-primary">Save changes</button>
                     </div>
                 </div>
             </div>
@@ -70,7 +70,8 @@ export default {
         return {
             departments: [],
             name: '',
-            message: ''
+            message: '',
+            errors: ''
         }
     },
     mounted() {
@@ -85,6 +86,26 @@ export default {
                 console.log(error)
             }
         },
+
+        async addNewDepartment() {
+            try {
+                const response = await axiosInstance.post("/add-department", {
+                    name: this.name
+                })
+
+                if(response.data.status === 200){
+                    console.log(response.data.message)
+                    this.getDepartments()
+                }else{
+                    console.log(response.data)
+                }
+
+                this.name = ''
+
+            } catch (error) {
+                console.log(error)
+            }
+        }
     }
 }
 </script>
