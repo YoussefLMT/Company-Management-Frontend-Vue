@@ -21,6 +21,13 @@ export default {
     components: {
         SideBar
     },
+    data() {
+        return {
+            name: '',
+            message: '',
+            error: ''
+        }
+    },
 }
 </script>
 
