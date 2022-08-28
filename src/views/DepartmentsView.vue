@@ -26,7 +26,7 @@
                             <th scope="row">{{ department.id }}</th>
                             <td>{{ department.name }}</td>
                             <td>
-                                <button type="button"  class="btn btn-danger">Delete</button>
+                                <button type="button" @click="deleteDepartment(department.id)" class="btn btn-danger">Delete</button>
                                 <router-link to="/hh" class="btn btn-warning">Update</router-link>
                             </td>
                         </tr>
@@ -110,6 +110,15 @@ export default {
 
                 this.name = ''
 
+            } catch (error) {
+                console.log(error)
+            }
+        },
+
+        async deleteDepartment(id){
+            try {
+                await axiosInstance.delete(`/delete-department/${id}`)
+                this.getDepartments()
             } catch (error) {
                 console.log(error)
             }
