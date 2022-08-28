@@ -41,7 +41,7 @@ export default {
         }
     },
     mounted(){
-        if(store.state.user.token){
+        if(localStorage.getItem('token')){
             this.$router.push('/dashboard')
         }
     },
