@@ -2,8 +2,14 @@
 <div class="app">
     <SideBar />
     <main>
-        <h1>Departments</h1>
-        <p>update department</p>
+        <h1>Update Department</h1>
+        <form>
+            <div class="mb-3">
+                <label for="name" class="form-label">Department Name</label>
+                <input type="text" class="form-control" id="name">
+            </div>
+            <button type="button" class="btn btn-primary">Update Department</button>
+        </form>
     </main>
 </div>
 </template>
