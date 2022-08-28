@@ -42,6 +42,9 @@ export default {
             departments: [],
         }
     },
+     mounted() {
+        this.getDepartments()
+    },
     methods:{
         async getDepartments() {
             try {
