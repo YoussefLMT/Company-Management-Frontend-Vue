@@ -1,5 +1,5 @@
 <template>
-    <aside :class="`${isExpanded && 'is-expanded'}`">
+<aside :class="`${isExpanded && 'is-expanded'}`">
     <div class="logo">
         <img src="../assets/logo.png" alt="Vue Logo" />
     </div>
@@ -32,7 +32,7 @@
     <div class="flex"></div>
 
     <div class="menu">
-        <button class="link">
+        <button class="link" @click="logOut">
             <span class="material-icons">logout</span>
             <span class="text">Log Out</span>
         </button>
@@ -41,6 +41,8 @@
 </template>
 
 <script>
+import axiosInstance from '../axios'
+
 export default {
     data() {
         return {
@@ -51,6 +53,19 @@ export default {
         ToggleSideBar() {
             this.isExpanded = !this.isExpanded
             localStorage.setItem('is_expanded', this.isExpanded)
+        },
+
+        async logOut() {
+            try {
+                const response = await axiosInstance.post("/logout")
+
+                if (response.data.status === 200) {
+                    localStorage.removeItem('token')
+                    this.$router.push('/')
+                }
+            } catch (error) {
+
+            }
         }
     }
 }
@@ -121,7 +136,7 @@ aside .menu-toggle-wrap .material-icons {
     background-color: var(--dark-alt);
 }
 
-.menu .router-link-exact-active{
+.menu .router-link-exact-active {
     background-color: var(--dark-alt);
 }
 
