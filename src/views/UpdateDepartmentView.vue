@@ -16,6 +16,7 @@
 
 <script>
 import SideBar from '../components/SideBar'
+import axiosInstance from '../axios'
 
 export default {
     components: {
@@ -28,10 +29,13 @@ export default {
             error: ''
         }
     },
+    mounted(){
+        this.getDepartment()
+    },
     methods: {
         async getDepartment() {
             try {
-                const response = await axios.get(`/get-departmrnt/${this.$route.params.id}`)
+                const response = await axiosInstance.get(`/get-department/${this.$route.params.id}`)
                 console.log(response.data)
             } catch (error) {
                 console.log(error)
