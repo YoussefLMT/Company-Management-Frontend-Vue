@@ -28,6 +28,16 @@ export default {
             error: ''
         }
     },
+    methods: {
+        async getDepartment() {
+            try {
+                const response = await axios.get(`/get-departmrnt/${this.$route.params.id}`)
+                console.log(response.data)
+            } catch (error) {
+                console.log(error)
+            }
+        },
+    },
 }
 </script>
 
