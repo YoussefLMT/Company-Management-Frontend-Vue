@@ -14,7 +14,6 @@
                             <th scope="col">id</th>
                             <th scope="col">department name</th>
                             <th scope="col">actions</th>
-
                         </tr>
                     </thead>
                     <tbody>
@@ -36,7 +35,12 @@ import SideBar from '../components/SideBar'
 export default {
     components: {
         SideBar
-    }
+    },
+    data() {
+        return {
+            departments: [],
+        }
+    },
 }
 </script>
 
