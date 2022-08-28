@@ -29,8 +29,8 @@ const routes = [
     }
   },
   {
-    path: '/update-deprtments/:id',
-    name: 'update-deprtments',
+    path: '/update-deprtment/:id',
+    name: 'updateDeprtment',
     component: UpdateDepartmentView,
     meta:{
       requiresAuth: true

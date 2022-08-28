@@ -27,7 +27,7 @@
                             <td>{{ department.name }}</td>
                             <td>
                                 <button type="button" @click="deleteDepartment(department.id)" class="btn btn-danger">Delete</button>
-                                <router-link to="/yy" class="btn btn-warning">Update</router-link>
+                                <router-link :to="{ name: 'updateDeprtment', params: {id: department.id }}" class="btn btn-warning">Update</router-link>
                             </td>
                         </tr>
                     </tbody>
