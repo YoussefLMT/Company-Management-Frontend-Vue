@@ -8,7 +8,7 @@
                 Departments Managment
 
                 <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#departmetsModal">
+                <button type="button" class="btn btn-primary btn-add" data-bs-toggle="modal" data-bs-target="#departmetsModal">
                     Add Department
                 </button>
             </div>
@@ -25,6 +25,10 @@
                         <tr v-for="department in departments" :key="department.id">
                             <th scope="row">{{ department.id }}</th>
                             <td>{{ department.name }}</td>
+                            <td>
+                                <button type="button"  class="btn btn-danger">Delete</button>
+                                <router-link to="/hh" class="btn btn-warning">Update</router-link>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
@@ -48,7 +52,6 @@
                                 <label for="name" class="form-label">Department Name</label>
                                 <input type="text" class="form-control" id="name" v-model="name">
                                 <span class="text-danger" v-if="errors.name">{{ errors.name[0] }}</span>
-
                             </div>
                         </form>
                     </div>
@@ -127,12 +130,14 @@ export default {
 }
 
 .dep {
-    margin: 100px auto;
+    margin: 80px auto;
 }
 
-.btn {
+.btn-add {
     float: right
 }
+
+
 
 @media (max-width: 768px) {
     .app main {
