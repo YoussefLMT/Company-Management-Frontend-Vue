@@ -9,9 +9,13 @@
             </div>
             <div class="card-body">
                 <form>
+                    <div class="alert alert-success" v-if="message">
+                        {{ message }}
+                    </div>
                     <div class="mb-3">
                         <label for="name" class="form-label">Department Name</label>
                         <input type="text" class="form-control" id="name" v-model="name">
+                        <span class="text-danger" v-if="error.name">{{ error.name[0] }}</span>
                     </div>
                     <button type="button" @click="updateDepartment" class="btn btn-primary">Update Department</button>
                 </form>
@@ -56,8 +60,14 @@ export default {
                     name: this.name,
                 })
 
-                console.log(response.data.message)
-                
+                if (response.data.status === 200) {
+                    this.message = response.data.message
+
+                } else if (response.data.status === 422) {
+                    this.error = response.data.validation_err
+
+                }
+
             } catch (error) {
                 console.log(error)
             }
