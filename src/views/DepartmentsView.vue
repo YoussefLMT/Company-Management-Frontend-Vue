@@ -17,9 +17,9 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
+                        <tr v-for="department in departments" :key="department.id">
+                            <th scope="row">{{ department.id }}</th>
+                            <td>{{ department.name }}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -49,7 +49,7 @@ export default {
         async getDepartments() {
             try {
                 const response = await axiosInstance.get("/departments")
-                console.log(response.data)
+                this.departments = response.data.departments
             } catch (error) {
                 console.log(error)
             }
