@@ -15,13 +15,13 @@
             <span class="material-icons">home</span>
             <span class="text">dashbord</span>
         </router-link>
-        <router-link to="/about" class="link">
-            <span class="material-icons">description</span>
-            <span class="text">About</span>
+        <router-link to="/employees" class="link">
+            <span class="material-icons">engineering</span>
+            <span class="text">employees</span>
         </router-link>
-        <router-link to="/users" class="link">
+        <router-link to="/customers" class="link">
             <span class="material-icons">group</span>
-            <span class="text">users</span>
+            <span class="text">customers</span>
         </router-link>
         <router-link to="/deprtments" class="link">
             <span class="material-icons">badge</span>
