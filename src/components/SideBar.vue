@@ -32,10 +32,10 @@
     <div class="flex"></div>
 
     <div class="menu">
-        <router-link to="#" class="link">
+        <button class="link">
             <span class="material-icons">logout</span>
             <span class="text">Log Out</span>
-        </router-link>
+        </button>
     </div>
 </aside>
 </template>
@@ -118,6 +118,10 @@ aside .menu-toggle-wrap .material-icons {
 }
 
 .menu .link:hover {
+    background-color: var(--dark-alt);
+}
+
+.menu .router-link-exact-active{
     background-color: var(--dark-alt);
 }
 
