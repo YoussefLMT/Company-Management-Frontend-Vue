@@ -7,8 +7,8 @@
             <div class="card-header">
                 Departments Managment
 
-                <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary btn-add" data-bs-toggle="modal" data-bs-target="#departmetsModal">
+                <!-- Button trigger add department modal -->
+                <button type="button" class="btn btn-primary btn-add" data-bs-toggle="modal" data-bs-target="#addDepartmetModal">
                     Add Department
                 </button>
             </div>
@@ -27,7 +27,10 @@
                             <td>{{ department.name }}</td>
                             <td>
                                 <button type="button" @click="deleteDepartment(department.id)" class="btn btn-danger">Delete</button>
-                                <router-link to="/hh" class="btn btn-warning">Update</router-link>
+                                <!-- Button trigger update department modal -->
+                                <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#updateDepartmetModal">
+                                    update
+                                </button>
                             </td>
                         </tr>
                     </tbody>
@@ -35,8 +38,9 @@
             </div>
         </div>
 
-        <!-- Modal -->
-        <div class="modal fade" id="departmetsModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+        <!--Add Department Modal -->
+        <div class="modal fade" id="addDepartmetModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -52,6 +56,31 @@
                                 <label for="name" class="form-label">Department Name</label>
                                 <input type="text" class="form-control" id="name" v-model="name">
                                 <span class="text-danger" v-if="errors.name">{{ errors.name[0] }}</span>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" @click="addNewDepartment" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!--Update Department Modal -->
+        <div class="modal fade" id="updateDepartmetModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Update Department</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Department Name</label>
+                                <input type="text" class="form-control" id="name">
                             </div>
                         </form>
                     </div>
@@ -115,7 +144,7 @@ export default {
             }
         },
 
-        async deleteDepartment(id){
+        async deleteDepartment(id) {
             try {
                 await axiosInstance.delete(`/delete-department/${id}`)
                 this.getDepartments()
@@ -145,8 +174,6 @@ export default {
 .btn-add {
     float: right
 }
-
-
 
 @media (max-width: 768px) {
     .app main {
