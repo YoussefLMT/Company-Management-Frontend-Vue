@@ -69,6 +69,8 @@ export default {
     data() {
         return {
             departments: [],
+            name: '',
+            message: ''
         }
     },
     mounted() {
