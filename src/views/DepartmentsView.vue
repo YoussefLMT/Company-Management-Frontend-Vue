@@ -31,6 +31,7 @@
 
 <script>
 import SideBar from '../components/SideBar'
+import axiosInstance from '../axios'
 
 export default {
     components: {
@@ -41,6 +42,16 @@ export default {
             departments: [],
         }
     },
+    methods:{
+        async getDepartments() {
+            try {
+                const response = await axiosInstance.get("/departments")
+                console.log(response.data)
+            } catch (error) {
+                console.log(error)
+            }
+        },
+    }
 }
 </script>
 
