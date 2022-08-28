@@ -44,6 +44,8 @@
                             <div class="mb-3">
                                 <label for="name" class="form-label">Department Name</label>
                                 <input type="text" class="form-control" id="name" v-model="name">
+                                <span class="text-danger" v-if="errors.name">{{ errors.name[0] }}</span>
+
                             </div>
                         </form>
                     </div>
@@ -93,11 +95,11 @@ export default {
                     name: this.name
                 })
 
-                if(response.data.status === 200){
-                    console.log(response.data.message)
+                if (response.data.status === 200) {
+                    this.message = response.data.message
                     this.getDepartments()
-                }else{
-                    console.log(response.data)
+                } else {
+                    this.errors = response.data.validation_err
                 }
 
                 this.name = ''
