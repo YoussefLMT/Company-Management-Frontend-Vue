@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import LoginView from '../views/LoginView.vue'
 import DashboardView from '../views/DashboardView.vue'
 import DepartmentsView from '../views/DepartmentsView.vue'
+import UpdateDepartmentView from '../views/UpdateDepartmentView.vue'
 import store from '../store';
 
 
@@ -23,6 +24,14 @@ const routes = [
     path: '/deprtments',
     name: 'deprtments',
     component: DepartmentsView,
+    meta:{
+      requiresAuth: true
+    }
+  },
+  {
+    path: '/update-deprtments/:id',
+    name: 'update-deprtments',
+    component: UpdateDepartmentView,
     meta:{
       requiresAuth: true
     }
