@@ -3,13 +3,21 @@
     <SideBar />
     <main>
         <h1>Update Department</h1>
-        <form>
-            <div class="mb-3">
-                <label for="name" class="form-label">Department Name</label>
-                <input type="text" class="form-control" id="name">
+        <div class="card dep" style="width: 800px;">
+            <div class="card-header">
+                Departments Managment
             </div>
-            <button type="button" class="btn btn-primary">Update Department</button>
-        </form>
+            <div class="card-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Department Name</label>
+                        <input type="text" class="form-control" id="name">
+                    </div>
+                    <button type="button" class="btn btn-primary">Update Department</button>
+                </form>
+            </div>
+        </div>
+
     </main>
 </div>
 </template>
@@ -29,7 +37,7 @@ export default {
             error: ''
         }
     },
-    mounted(){
+    mounted() {
         this.getDepartment()
     },
     methods: {
