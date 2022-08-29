@@ -73,7 +73,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" @click="addNewDepartment" class="btn btn-primary">Save changes</button>
+                        <button type="button" @click="addNewCustomer" class="btn btn-primary">Save changes</button>
                     </div>
                 </div>
             </div>
@@ -112,6 +112,24 @@ export default {
             try {
                 const response = await axiosInstance.get("/customers")
                 this.customers = response.data.customers
+            } catch (error) {
+                console.log(error)
+            }
+        },
+
+        async addNewCustomer() {
+            try {
+                const response = await axiosInstance.post("/add-customer", this.customer)
+
+                if (response.data.status === 200) {
+                    // this.message = response.data.message
+                    // this.getDepartments()
+                    console.log(response.data.message)
+                } else {
+                    // this.errors = response.data.validation_err
+                    console.log(response.data.validation_err)
+                }
+
             } catch (error) {
                 console.log(error)
             }
