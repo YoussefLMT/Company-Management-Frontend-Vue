@@ -128,7 +128,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .app {
     display: flex;
     background: var(--light);

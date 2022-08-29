@@ -6,6 +6,11 @@
         <div class="card cus" style="width: 900px;">
             <div class="card-header">
                 Customers Managment
+
+                <!-- Button trigger add customer modal -->
+                <button type="button" class="btn btn-primary btn-add" data-bs-toggle="modal" data-bs-target="#addCustomerModal">
+                    Add Customer
+                </button>
             </div>
             <div class="card-body">
                 <table class="table">
@@ -31,6 +36,46 @@
                         </tr>
                     </tbody>
                 </table>
+            </div>
+        </div>
+
+        <!--Add Customer Modal -->
+        <div class="modal fade" id="addCustomerModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Add New Customer</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="mb-3">
+                                <label for="fname" class="form-label">First Name</label>
+                                <input type="text" class="form-control" id="fname" >
+                            </div>
+                            <div class="mb-3">
+                                <label for="lname" class="form-label">Last Name</label>
+                                <input type="text" class="form-control" id="lname" >
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="text" class="form-control" id="email" >
+                            </div>
+                            <div class="mb-3">
+                                <label for="phone" class="form-label">Phone</label>
+                                <input type="text" class="form-control" id="phone" >
+                            </div>
+                            <div class="mb-3">
+                                <label for="address" class="form-label">Address</label>
+                                <input type="text" class="form-control" id="address" >
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" @click="addNewDepartment" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
             </div>
         </div>
     </main>
@@ -68,7 +113,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .app {
     display: flex;
     background: var(--light);
@@ -81,6 +126,10 @@ export default {
 
 .cus {
     margin: 50px auto;
+}
+
+.btn-add {
+    float: right
 }
 
 @media (max-width: 768px) {
