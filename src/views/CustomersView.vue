@@ -49,25 +49,38 @@
                     </div>
                     <div class="modal-body">
                         <form>
+                            <div class="alert alert-success" v-if="message">
+                                {{ message }}
+                            </div>
                             <div class="mb-3">
                                 <label for="fname" class="form-label">First Name</label>
-                                <input type="text" class="form-control" id="fname" v-model="customer.last_name">
+                                <input type="text" class="form-control" id="fname" v-model="customer.first_name">
+                                <span class="text-danger" v-if="errors.first_name">{{ errors.first_name[0] }}</span>
+
                             </div>
                             <div class="mb-3">
                                 <label for="lname" class="form-label">Last Name</label>
-                                <input type="text" class="form-control" id="lname" v-model="customer.first_name">
+                                <input type="text" class="form-control" id="lname" v-model="customer.last_name">
+                                <span class="text-danger" v-if="errors.last_name">{{ errors.last_name[0] }}</span>
+
                             </div>
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email</label>
                                 <input type="text" class="form-control" id="email" v-model="customer.email">
+                                <span class="text-danger" v-if="errors.email">{{ errors.email[0] }}</span>
+
                             </div>
                             <div class="mb-3">
                                 <label for="phone" class="form-label">Phone</label>
                                 <input type="text" class="form-control" id="phone" v-model="customer.phone">
+                                <span class="text-danger" v-if="errors.phone">{{ errors.phone[0] }}</span>
+
                             </div>
                             <div class="mb-3">
                                 <label for="address" class="form-label">Address</label>
                                 <input type="text" class="form-control" id="address" v-model="customer.address">
+                                <span class="text-danger" v-if="errors.address">{{ errors.address[0] }}</span>
+
                             </div>
                         </form>
                     </div>
@@ -122,12 +135,10 @@ export default {
                 const response = await axiosInstance.post("/add-customer", this.customer)
 
                 if (response.data.status === 200) {
-                    // this.message = response.data.message
-                    // this.getDepartments()
-                    console.log(response.data.message)
+                    this.message = response.data.message
+                    this.getCustomers()
                 } else {
-                    // this.errors = response.data.validation_err
-                    console.log(response.data.validation_err)
+                    this.errors = response.data.validation_err
                 }
 
             } catch (error) {
