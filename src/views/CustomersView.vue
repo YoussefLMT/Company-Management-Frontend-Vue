@@ -43,7 +43,14 @@ import SideBar from '../components/SideBar'
 export default {
     components: {
         SideBar
-    }
+    },
+    data() {
+        return {
+            customers: [],
+            message: '',
+            errors: ''
+        }
+    },
 }
 </script>
 
