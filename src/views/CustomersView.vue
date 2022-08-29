@@ -52,7 +52,9 @@ export default {
             errors: ''
         }
     },
-
+    mounted(){
+        this.getCustomers()
+    },
     methods: {
         async getCustomers() {
             try {
