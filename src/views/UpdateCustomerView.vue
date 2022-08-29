@@ -57,6 +57,17 @@ export default {
             errors: ''
         }
     },
+    methods:{
+        async getCustomer() {
+            try {
+                const response = await axiosInstance.get(`/get-customer/${this.$route.params.id}`)
+                // this.customer = response.data.department.name
+                console.log(response.data)
+            } catch (error) {
+                console.log(error)
+            }
+        },
+    }
 }
 </script>
 
