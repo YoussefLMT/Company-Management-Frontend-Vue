@@ -33,6 +33,10 @@
                             <td>{{ customer.email }}</td>
                             <td>{{ customer.phone }}</td>
                             <td>{{ customer.address }}</td>
+                            <td>
+                                <button type="button" class="btn btn-danger">Delete</button>
+                                <router-link to="/hh" class="btn btn-warning">Update</router-link>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
