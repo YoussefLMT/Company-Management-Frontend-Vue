@@ -1,9 +1,38 @@
 <template>
-    <div class="app">
+<div class="app">
     <SideBar />
     <main>
-        <h1>Update Customer</h1>
-
+        <h3>Update Customer</h3>
+        <div class="card cus" style="width: 800px;">
+            <div class="card-header">
+                Customers Managment
+            </div>
+            <div class="card-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="fname" class="form-label">First Name</label>
+                        <input type="text" class="form-control" id="fname">
+                    </div>
+                    <div class="mb-3">
+                        <label for="lname" class="form-label">Last Name</label>
+                        <input type="text" class="form-control" id="lname">
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="text" class="form-control" id="email">
+                    </div>
+                    <div class="mb-3">
+                        <label for="phone" class="form-label">Phone</label>
+                        <input type="text" class="form-control" id="phone">
+                    </div>
+                    <div class="mb-3">
+                        <label for="address" class="form-label">Address</label>
+                        <input type="text" class="form-control" id="address">
+                    </div>
+                    <button type="button" class="btn btn-primary">Update Customer</button>
+                </form>
+            </div>
+        </div>
     </main>
 </div>
 </template>
@@ -12,13 +41,13 @@
 import SideBar from '../components/SideBar'
 
 export default {
-     components: {
+    components: {
         SideBar
     },
 }
 </script>
 
-<style>
+<style scoped>
 .app {
     display: flex;
     background: var(--light);
@@ -29,9 +58,14 @@ export default {
     padding: 32px;
 }
 
+.cus {
+    margin: 20px auto;
+}
+
+
 @media (max-width: 768px) {
     .app main {
         padding: 96px;
     }
-}    
+}
 </style>
