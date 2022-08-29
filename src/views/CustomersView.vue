@@ -21,13 +21,13 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>test</td>
-                            <td>test</td>
-                            <td>test</td>
-                            <td>test</td>
-                            <td>test</td>
+                        <tr v-for="customer in customers" :key="customer.id">
+                            <th scope="row">{{ customer.id }}</th>
+                            <td>{{ customer.first_name }}</td>
+                            <td>{{ customer.last_name }}</td>
+                            <td>{{ customer.email }}</td>
+                            <td>{{ customer.phone }}</td>
+                            <td>{{ customer.address }}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -52,14 +52,14 @@ export default {
             errors: ''
         }
     },
-    mounted(){
+    mounted() {
         this.getCustomers()
     },
     methods: {
         async getCustomers() {
             try {
                 const response = await axiosInstance.get("/customers")
-                console.log(response.data)
+                this.customers = response.data.customers
             } catch (error) {
                 console.log(error)
             }
