@@ -56,31 +56,26 @@
                                 <label for="fname" class="form-label">First Name</label>
                                 <input type="text" class="form-control" id="fname" v-model="customer.first_name">
                                 <span class="text-danger" v-if="errors.first_name">{{ errors.first_name[0] }}</span>
-
                             </div>
                             <div class="mb-3">
                                 <label for="lname" class="form-label">Last Name</label>
                                 <input type="text" class="form-control" id="lname" v-model="customer.last_name">
                                 <span class="text-danger" v-if="errors.last_name">{{ errors.last_name[0] }}</span>
-
                             </div>
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email</label>
                                 <input type="text" class="form-control" id="email" v-model="customer.email">
                                 <span class="text-danger" v-if="errors.email">{{ errors.email[0] }}</span>
-
                             </div>
                             <div class="mb-3">
                                 <label for="phone" class="form-label">Phone</label>
                                 <input type="text" class="form-control" id="phone" v-model="customer.phone">
                                 <span class="text-danger" v-if="errors.phone">{{ errors.phone[0] }}</span>
-
                             </div>
                             <div class="mb-3">
                                 <label for="address" class="form-label">Address</label>
                                 <input type="text" class="form-control" id="address" v-model="customer.address">
                                 <span class="text-danger" v-if="errors.address">{{ errors.address[0] }}</span>
-
                             </div>
                         </form>
                     </div>
@@ -140,6 +135,12 @@ export default {
                 } else {
                     this.errors = response.data.validation_err
                 }
+
+                this.customer.first_name = ""
+                this.customer.last_name = ""
+                this.customer.email = ""
+                this.customer.phone = ""
+                this.customer.address = ""
 
             } catch (error) {
                 console.log(error)
