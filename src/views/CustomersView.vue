@@ -39,6 +39,7 @@
 
 <script>
 import SideBar from '../components/SideBar'
+import axiosInstance from '../axios'
 
 export default {
     components: {
@@ -51,6 +52,17 @@ export default {
             errors: ''
         }
     },
+
+    methods: {
+        async getCustomers() {
+            try {
+                const response = await axiosInstance.get("/customers")
+                console.log(response.data)
+            } catch (error) {
+                console.log(error)
+            }
+        },
+    }
 }
 </script>
 
