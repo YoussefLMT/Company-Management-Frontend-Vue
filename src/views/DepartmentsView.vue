@@ -140,7 +140,7 @@ export default {
 }
 
 .dep {
-    margin: 80px auto;
+    margin: 50px auto;
 }
 
 .btn-add {

@@ -2,8 +2,29 @@
 <div class="app">
     <SideBar />
     <main>
-        <h1>Dashboard</h1>
-        <p>this is a dashboard page</p>
+        <h1>Customers</h1>
+        <div class="card cus" style="width: 800px;">
+            <div class="card-header">
+                Customers Managment
+            </div>
+            <div class="card-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">id</th>
+                            <th scope="col">department name</th>
+                            <th scope="col">actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>test</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </main>
 </div>
 </template>
@@ -27,6 +48,10 @@ export default {
 .app main {
     flex: 1 1 0;
     padding: 32px;
+}
+
+.cus {
+    margin: 50px auto;
 }
 
 @media (max-width: 768px) {
