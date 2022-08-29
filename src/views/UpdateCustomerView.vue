@@ -39,6 +39,7 @@
 
 <script>
 import SideBar from '../components/SideBar'
+import axiosInstance from '../axios'
 
 export default {
     components: {
@@ -64,8 +65,7 @@ export default {
         async getCustomer() {
             try {
                 const response = await axiosInstance.get(`/get-customer/${this.$route.params.id}`)
-                // this.customer = response.data.department.name
-                console.log(response.data)
+                this.customer = response.data.customer
             } catch (error) {
                 console.log(error)
             }
