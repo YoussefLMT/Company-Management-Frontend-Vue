@@ -29,7 +29,7 @@
                         <label for="address" class="form-label">Address</label>
                         <input type="text" class="form-control" id="address" v-model="customer.address">
                     </div>
-                    <button type="button" class="btn btn-primary">Update Customer</button>
+                    <button type="button" @click="updateCustomer" class="btn btn-primary">Update Customer</button>
                 </form>
             </div>
         </div>
@@ -70,6 +70,25 @@ export default {
                 console.log(error)
             }
         },
+
+        async updateCustomer() {
+            try {
+                const response = await axiosInstance.put(`/update-customer/${this.$route.params.id}`, this.customer)
+
+                if (response.data.status === 200) {
+                    // this.message = response.data.message
+                    console.log(response.data.message)
+
+                } else if (response.data.status === 422) {
+                    // this.error = response.data.validation_err
+                    console.log(response.data.validation_err)
+
+                }
+
+            } catch (error) {
+                console.log(error)
+            }
+        }
     }
 }
 </script>
