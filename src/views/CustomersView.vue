@@ -3,7 +3,7 @@
     <SideBar />
     <main>
         <h1>Customers</h1>
-        <div class="card cus" style="width: 900px;">
+        <div class="card cus" style="width: 1000px;">
             <div class="card-header">
                 Customers Managment
 
@@ -34,7 +34,7 @@
                             <td>{{ customer.phone }}</td>
                             <td>{{ customer.address }}</td>
                             <td>
-                                <button type="button" class="btn btn-danger">Delete</button>
+                                <button type="button" @click="deleteCustomer(customer.id)" class="btn btn-danger">Delete</button>
                                 <router-link to="/hh" class="btn btn-warning">Update</router-link>
                             </td>
                         </tr>
@@ -150,6 +150,15 @@ export default {
                 console.log(error)
             }
         },
+
+        async deleteCustomer(id) {
+            try {
+                await axiosInstance.delete(`/delete-customer/${id}`)
+                this.getCustomers()
+            } catch (error) {
+                console.log(error)
+            }
+        }
     }
 }
 </script>
