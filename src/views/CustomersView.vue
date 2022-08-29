@@ -3,7 +3,7 @@
     <SideBar />
     <main>
         <h1>Customers</h1>
-        <div class="card cus" style="width: 800px;">
+        <div class="card cus" style="width: 900px;">
             <div class="card-header">
                 Customers Managment
             </div>
@@ -12,13 +12,21 @@
                     <thead>
                         <tr>
                             <th scope="col">id</th>
-                            <th scope="col">department name</th>
+                            <th scope="col">first name</th>
+                            <th scope="col">last name</th>
+                            <th scope="col">email</th>
+                            <th scope="col">phone</th>
+                            <th scope="col">address</th>
                             <th scope="col">actions</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <th scope="row">1</th>
+                            <td>test</td>
+                            <td>test</td>
+                            <td>test</td>
+                            <td>test</td>
                             <td>test</td>
                         </tr>
                     </tbody>
