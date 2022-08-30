@@ -58,7 +58,11 @@ export default {
     },
     computed:{
         employees(){
-            store.getters.employees
+            return store.getters.employees
+        },
+
+        loading(){
+            return store.getters.loading
         }
     }
 }
