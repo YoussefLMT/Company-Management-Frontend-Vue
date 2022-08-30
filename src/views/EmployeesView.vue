@@ -108,14 +108,21 @@
 import SideBar from '../components/SideBar'
 import ClipLoader from 'vue-spinner/src/ClipLoader.vue'
 import store from '@/store'
+import axiosInstance from '../axios'
 
 export default {
     components: {
         SideBar,
         ClipLoader
     },
+    data() {
+        return {
+            departments:''
+        }
+    },
     mounted() {
         store.dispatch('getEmployees')
+        this.getDepartments()
     },
     computed: {
         employees() {
@@ -124,6 +131,17 @@ export default {
 
         loading() {
             return store.getters.loading
+        }
+    },
+    methods: {
+        async getDepartments() {
+            try {
+                const response = await axiosInstance.get("/departments")
+                this.departments = response.data.departments
+                console.log(this.departments)
+            } catch (error) {
+                console.log(error)
+            }
         }
     }
 }
