@@ -59,31 +59,31 @@
                         <form>
                             <div class="mb-3">
                                 <label for="fname" class="form-label">First Name</label>
-                                <input type="text" class="form-control" id="fname">
+                                <input type="text" class="form-control" id="fname" v-model="employee.first_name">
                             </div>
                             <div class="mb-3">
                                 <label for="lname" class="form-label">Last Name</label>
-                                <input type="text" class="form-control" id="lname">
+                                <input type="text" class="form-control" id="lname" v-model="employee.last_name">
                             </div>
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email</label>
-                                <input type="text" class="form-control" id="email">
+                                <input type="text" class="form-control" id="email" v-model="employee.email">
                             </div>
                             <div class="mb-3">
                                 <label for="phone" class="form-label">Phone</label>
-                                <input type="text" class="form-control" id="phone">
+                                <input type="text" class="form-control" id="phone" v-model="employee.phone">
                             </div>
                             <div class="mb-3">
                                 <label for="job" class="form-label">Job</label>
-                                <input type="text" class="form-control" id="job">
+                                <input type="text" class="form-control" id="job" v-model="employee.job">
                             </div>
                             <div class="mb-3">
                                 <label for="salary" class="form-label">Salary</label>
-                                <input type="text" class="form-control" id="salary">
+                                <input type="text" class="form-control" id="salary" v-model="employee.salary">
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Department</label>
-                                <select class="form-select">
+                                <select class="form-select" v-model="employee.department_id">
                                     <option v-for="department in departments" :value="department.name" :key="department.id">{{department.name}}</option>
                                 </select>
                             </div>
@@ -115,7 +115,16 @@ export default {
     },
     data() {
         return {
-            departments:''
+            departments: '',
+            employee: {
+                first_name: '',
+                last_name: '',
+                email: '',
+                phone: '',
+                job: '',
+                salary: '',
+                department_id: ''
+            }
         }
     },
     mounted() {
