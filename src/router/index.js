@@ -6,6 +6,7 @@ import UpdateDepartmentView from '../views/UpdateDepartmentView.vue'
 import CustomersView from '../views/CustomersView.vue'
 import UpdateCustomerView from '../views/UpdateCustomerView.vue'
 import EmployeesView from '../views/EmployeesView.vue'
+import UpdateEmployeeView from '../views/UpdateEmployeeView.vue'
 import store from '../store';
 
 
@@ -59,6 +60,14 @@ const routes = [
     path: '/employees',
     name: 'employees',
     component: EmployeesView,
+    meta:{
+      requiresAuth: true
+    }
+  },
+  {
+    path: '/update-employee/:id',
+    name: 'updateEmployee',
+    component: UpdateEmployeeView,
     meta:{
       requiresAuth: true
     }
