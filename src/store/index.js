@@ -22,7 +22,7 @@ export default createStore({
     getEmployees({ commit }) {
       commit('setLoading', true)
 
-      axiosInstance.get('/emoloyees')
+      axiosInstance.get('/employees')
         .then(response => {
           commit('getEmployees', response.data.employees)
           commit('setLoading', false)

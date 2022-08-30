@@ -33,7 +33,6 @@
                             <td>test</td>
                             <td>test</td>
                             <td>test</td>
-
                         </tr>
                     </tbody>
                 </table>
@@ -46,11 +45,17 @@
 
 <script>
 import SideBar from '../components/SideBar'
+import PulseLoader from 'vue-spinner/src/PulseLoader.vue'
+import store from '@/store'
 
 export default {
     components: {
-        SideBar
+        SideBar,
+        PulseLoader
     },
+    mounted(){
+        store.dispatch('getEmployees')
+    }
 }
 </script>
 
