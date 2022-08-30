@@ -84,7 +84,7 @@
                             <div class="mb-3">
                                 <label class="form-label">Department</label>
                                 <select class="form-select" v-model="employee.department_id">
-                                    <option v-for="department in departments" :value="department.name" :key="department.id">{{department.name}}</option>
+                                    <option v-for="department in departments" :value="department.id" :key="department.id">{{department.name}}</option>
                                 </select>
                             </div>
 
@@ -92,7 +92,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" @click="addNewEmployee" class="btn btn-primary">Save changes</button>
                     </div>
                 </div>
             </div>
@@ -145,10 +145,13 @@ export default {
             try {
                 const response = await axiosInstance.get("/departments")
                 this.departments = response.data.departments
-                console.log(this.departments)
             } catch (error) {
                 console.log(error)
             }
+        },
+
+        addNewEmployee() {
+            console.log(this.employee)
         }
     }
 }
