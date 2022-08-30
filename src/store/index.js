@@ -9,8 +9,6 @@ export default createStore({
     employees: [],
     loading: false
   },
-  getters: {
-  },
   mutations: {
     setLoading(state, loading){
       state.loading = loading
@@ -29,6 +27,14 @@ export default createStore({
         commit('setLoading', false)
       })
       .catch(error => console.log(error))
+    }
+  },
+  getters: {
+    employees(state){
+      return state.employees
+    },
+    loading(state){
+      return state.loading
     }
   },
   modules: {
