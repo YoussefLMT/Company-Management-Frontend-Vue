@@ -55,6 +55,21 @@ export default {
     components: {
         SideBar
     },
+    data() {
+        return {
+            employee: {
+                first_name: '',
+                last_name: '',
+                email: '',
+                phone: '',
+                job: '',
+                salary: '',
+                department_id: ''
+            },
+            message: '',
+            errors: ''
+        }
+    },
 }
 </script>
 
