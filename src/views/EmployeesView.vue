@@ -55,6 +55,11 @@ export default {
     },
     mounted(){
         store.dispatch('getEmployees')
+    },
+    computed:{
+        employees(){
+            store.getters.employees
+        }
     }
 }
 </script>
