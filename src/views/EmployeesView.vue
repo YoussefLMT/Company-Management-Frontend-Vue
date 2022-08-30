@@ -15,9 +15,9 @@
             </div>
             <div class="card-body">
                 <table class="table">
-                    <div v-if="loading" class="spinner">
+                    <!-- <div v-if="loading" class="spinner">
                         <ClipLoader />
-                    </div>
+                    </div> -->
                     <thead>
                         <tr>
                             <th scope="col">id</th>
@@ -84,9 +84,7 @@
                             <div class="mb-3">
                                 <label class="form-label">Department</label>
                                 <select class="form-select">
-                                    <option value="1" selected>One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
+                                    <option v-for="department in departments" :value="department.name" :key="department.id">{{department.name}}</option>
                                 </select>
                             </div>
 
