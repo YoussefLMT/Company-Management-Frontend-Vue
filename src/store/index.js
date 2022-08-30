@@ -1,4 +1,5 @@
 import { createStore } from 'vuex'
+import axiosInstance from '../axios'
 
 export default createStore({
   state: {
@@ -11,6 +12,9 @@ export default createStore({
   getters: {
   },
   mutations: {
+    setLoading(state, loading){
+      state.loading = loading
+    }
   },
   actions: {
   },
