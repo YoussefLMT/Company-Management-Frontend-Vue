@@ -43,6 +43,8 @@
                         <label class="form-label">Department</label>
                         <select class="form-select" v-model="employee[0].name">
                             <option>{{ employee[0].name }}</option>
+                            <option v-for="department in departments" :value="department.id" :key="department.id">{{department.name}}</option>
+
                         </select>
                     </div>
                     <button type="button" class="btn btn-primary">Update Employee</button>
@@ -74,17 +76,29 @@ export default {
                 name: ''
             }],
             message: '',
-            errors: ''
+            errors: '',
+            departments: '',
+
         }
     },
-    mounted(){
+    mounted() {
         this.getEmployee()
+        this.getDepartments()
     },
     methods: {
         async getEmployee() {
             try {
                 const response = await axiosInstance.get(`/get-employee/${this.$route.params.id}`)
                 this.employee = response.data.employee
+            } catch (error) {
+                console.log(error)
+            }
+        },
+
+        async getDepartments() {
+            try {
+                const response = await axiosInstance.get("/departments")
+                this.departments = response.data.departments
             } catch (error) {
                 console.log(error)
             }
