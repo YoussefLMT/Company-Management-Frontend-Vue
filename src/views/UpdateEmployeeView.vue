@@ -35,19 +35,12 @@
                     </div>
                     <!-- <div class="mb-3">
                         <label class="form-label">Department</label>
-                        <select class="form-select" v-model="employee.department_id">
-                            <option v-for="department in departments" :value="department.id" :key="department.id">{{department.name}}</option>
-                        </select>
-                    </div> -->
-                    <div class="mb-3">
-                        <label class="form-label">Department</label>
                         <select class="form-select" v-model="employee[0].name">
                             <option>{{ employee[0].name }}</option>
                             <option v-for="department in departments" :value="department.id" :key="department.id">{{department.name}}</option>
-
                         </select>
-                    </div>
-                    <button type="button" class="btn btn-primary">Update Employee</button>
+                    </div> -->
+                    <button type="button" @click="updateEmployee" class="btn btn-primary">Update Employee</button>
                 </form>
             </div>
         </div>
@@ -72,18 +65,18 @@ export default {
                 phone: '',
                 job: '',
                 salary: '',
-                department_id: '',
-                name: ''
+                // department_id: '',
+                // name: ''
             }],
             message: '',
             errors: '',
-            departments: '',
+            // departments: '',
 
         }
     },
     mounted() {
         this.getEmployee()
-        this.getDepartments()
+        // this.getDepartments()
     },
     methods: {
         async getEmployee() {
@@ -95,14 +88,30 @@ export default {
             }
         },
 
-        async getDepartments() {
+        // async getDepartments() {
+        //     try {
+        //         const response = await axiosInstance.get("/departments")
+        //         this.departments = response.data.departments
+        //     } catch (error) {
+        //         console.log(error)
+        //     }
+        // },
+
+        async updateEmployee() {
             try {
-                const response = await axiosInstance.get("/departments")
-                this.departments = response.data.departments
+                const response = await axiosInstance.put(`/update-employee/${this.$route.params.id}`, this.employee[0])
+
+                if (response.data.status === 200) {
+                    console.log(response.data.message)
+
+                } else if (response.data.status === 422) {
+                    console.log(response.data.validation_err)
+                }
+
             } catch (error) {
                 console.log(error)
             }
-        },
+        }
     }
 }
 </script>
