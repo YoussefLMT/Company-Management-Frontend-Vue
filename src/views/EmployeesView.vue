@@ -150,8 +150,19 @@ export default {
             }
         },
 
-        addNewEmployee() {
-            console.log(this.employee)
+        async addNewEmployee() {
+            try {
+                const response = await axiosInstance.post("/add-employee", this.employee)
+
+                if (response.data.status === 200) {
+                    store.dispatch('getEmployees')
+                } else {
+                  console.log(response.data.validation_err)  
+                }
+
+            } catch (error) {
+                console.log(error)
+            }
         }
     }
 }
