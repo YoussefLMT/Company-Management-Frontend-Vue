@@ -7,6 +7,42 @@
             <div class="card-header">
                 Employees Managment
             </div>
+            <div class="card-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="fname" class="form-label">First Name</label>
+                        <input type="text" class="form-control" id="fname" >
+                    </div>
+                    <div class="mb-3">
+                        <label for="lname" class="form-label">Last Name</label>
+                        <input type="text" class="form-control" id="lname" >
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="text" class="form-control" id="email" >
+                    </div>
+                    <div class="mb-3">
+                        <label for="phone" class="form-label">Phone</label>
+                        <input type="text" class="form-control" id="phone" >
+                    </div>
+                    <div class="mb-3">
+                        <label for="job" class="form-label">Job</label>
+                        <input type="text" class="form-control" id="job" >
+                    </div>
+                    <div class="mb-3">
+                        <label for="salary" class="form-label">Salary</label>
+                        <input type="text" class="form-control" id="salary" >
+                    </div>
+                    <!-- <div class="mb-3">
+                        <label class="form-label">Department</label>
+                        <select class="form-select" v-model="employee.department_id">
+                            <option v-for="department in departments" :value="department.id" :key="department.id">{{department.name}}</option>
+                        </select>
+                        <span class="text-danger" v-if="errors.department_id">{{ errors.department_id[0] }}</span>
+                    </div> -->
+                    <button type="button" class="btn btn-primary">Update Employee</button>
+                </form>
+            </div>
         </div>
     </main>
 </div>
