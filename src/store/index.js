@@ -14,6 +14,9 @@ export default createStore({
   mutations: {
     setLoading(state, loading){
       state.loading = loading
+    },
+    getEmployees(state, employees){
+      state.employees = employees
     }
   },
   actions: {
