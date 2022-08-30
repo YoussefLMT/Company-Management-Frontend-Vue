@@ -42,7 +42,7 @@
                             <td>{{ employee.salary }}</td>
                             <td>{{ employee.name }}</td>
                             <td>
-                                <button type="button" class="btn btn-danger">Delete</button>
+                                <button type="button" @click="deleteEmployee(employee.id)" class="btn btn-danger">Delete</button>
                                 <router-link to="/fefuf" class="btn btn-warning">Update</router-link>
                             </td>
                         </tr>
@@ -192,6 +192,15 @@ export default {
                 this.salary = ""
                 this.employee.department_id = ""
 
+            } catch (error) {
+                console.log(error)
+            }
+        },
+
+        async deleteEmployee(id) {
+            try {
+                await axiosInstance.delete(`/delete-employee/${id}`)
+                store.dispatch('getEmployees')
             } catch (error) {
                 console.log(error)
             }
