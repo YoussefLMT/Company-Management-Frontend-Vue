@@ -57,35 +57,52 @@
                     </div>
                     <div class="modal-body">
                         <form>
+                            <div class="alert alert-success" v-if="message">
+                                {{ message }}
+                            </div>
                             <div class="mb-3">
                                 <label for="fname" class="form-label">First Name</label>
                                 <input type="text" class="form-control" id="fname" v-model="employee.first_name">
+                                                                <span class="text-danger" v-if="errors.first_name">{{ errors.first_name[0] }}</span>
+
                             </div>
                             <div class="mb-3">
                                 <label for="lname" class="form-label">Last Name</label>
                                 <input type="text" class="form-control" id="lname" v-model="employee.last_name">
+                                                                <span class="text-danger" v-if="errors.last_name">{{ errors.last_name[0] }}</span>
+
                             </div>
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email</label>
                                 <input type="text" class="form-control" id="email" v-model="employee.email">
+                                                                <span class="text-danger" v-if="errors.email">{{ errors.email[0] }}</span>
+
                             </div>
                             <div class="mb-3">
                                 <label for="phone" class="form-label">Phone</label>
                                 <input type="text" class="form-control" id="phone" v-model="employee.phone">
+                                                                <span class="text-danger" v-if="errors.phone">{{ errors.phone[0] }}</span>
+
                             </div>
                             <div class="mb-3">
                                 <label for="job" class="form-label">Job</label>
                                 <input type="text" class="form-control" id="job" v-model="employee.job">
+                                                                <span class="text-danger" v-if="errors.job">{{ errors.job[0] }}</span>
+
                             </div>
                             <div class="mb-3">
                                 <label for="salary" class="form-label">Salary</label>
                                 <input type="text" class="form-control" id="salary" v-model="employee.salary">
+                                                                <span class="text-danger" v-if="errors.salary">{{ errors.salary[0] }}</span>
+
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Department</label>
                                 <select class="form-select" v-model="employee.department_id">
                                     <option v-for="department in departments" :value="department.id" :key="department.id">{{department.name}}</option>
                                 </select>
+                                                                <span class="text-danger" v-if="errors.department_id">{{ errors.department_id[0] }}</span>
+
                             </div>
 
                         </form>
@@ -124,7 +141,9 @@ export default {
                 job: '',
                 salary: '',
                 department_id: ''
-            }
+            },
+            message: '',
+            errors: '',
         }
     },
     mounted() {
@@ -155,10 +174,19 @@ export default {
                 const response = await axiosInstance.post("/add-employee", this.employee)
 
                 if (response.data.status === 200) {
+                    this.message = response.data.message
                     store.dispatch('getEmployees')
                 } else {
-                  console.log(response.data.validation_err)  
+                    this.errors = response.data.validation_err
                 }
+
+                this.employee.first_name = ""
+                this.employee.last_name = ""
+                this.employee.email = ""
+                this.employee.phone = ""
+                this.employee.job = ""
+                this.salary = ""
+                this.employee.department_id = ""
 
             } catch (error) {
                 console.log(error)
