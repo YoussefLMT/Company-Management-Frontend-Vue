@@ -43,7 +43,7 @@
                             <td>{{ employee.name }}</td>
                             <td>
                                 <button type="button" @click="deleteEmployee(employee.id)" class="btn btn-danger">Delete</button>
-                                <router-link to="/fefuf" class="btn btn-warning">Update</router-link>
+                                <router-link :to="{ name: 'updateEmployee', params: {id: employee.id }}" class="btn btn-warning">Update</router-link>
                             </td>
                         </tr>
                     </tbody>
@@ -67,48 +67,40 @@
                             <div class="mb-3">
                                 <label for="fname" class="form-label">First Name</label>
                                 <input type="text" class="form-control" id="fname" v-model="employee.first_name">
-                                                                <span class="text-danger" v-if="errors.first_name">{{ errors.first_name[0] }}</span>
-
+                                <span class="text-danger" v-if="errors.first_name">{{ errors.first_name[0] }}</span>
                             </div>
                             <div class="mb-3">
                                 <label for="lname" class="form-label">Last Name</label>
                                 <input type="text" class="form-control" id="lname" v-model="employee.last_name">
-                                                                <span class="text-danger" v-if="errors.last_name">{{ errors.last_name[0] }}</span>
-
+                                <span class="text-danger" v-if="errors.last_name">{{ errors.last_name[0] }}</span>
                             </div>
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email</label>
                                 <input type="text" class="form-control" id="email" v-model="employee.email">
-                                                                <span class="text-danger" v-if="errors.email">{{ errors.email[0] }}</span>
-
+                                <span class="text-danger" v-if="errors.email">{{ errors.email[0] }}</span>
                             </div>
                             <div class="mb-3">
                                 <label for="phone" class="form-label">Phone</label>
                                 <input type="text" class="form-control" id="phone" v-model="employee.phone">
-                                                                <span class="text-danger" v-if="errors.phone">{{ errors.phone[0] }}</span>
-
+                                <span class="text-danger" v-if="errors.phone">{{ errors.phone[0] }}</span>
                             </div>
                             <div class="mb-3">
                                 <label for="job" class="form-label">Job</label>
                                 <input type="text" class="form-control" id="job" v-model="employee.job">
-                                                                <span class="text-danger" v-if="errors.job">{{ errors.job[0] }}</span>
-
+                                <span class="text-danger" v-if="errors.job">{{ errors.job[0] }}</span>
                             </div>
                             <div class="mb-3">
                                 <label for="salary" class="form-label">Salary</label>
                                 <input type="text" class="form-control" id="salary" v-model="employee.salary">
-                                                                <span class="text-danger" v-if="errors.salary">{{ errors.salary[0] }}</span>
-
+                                <span class="text-danger" v-if="errors.salary">{{ errors.salary[0] }}</span>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Department</label>
                                 <select class="form-select" v-model="employee.department_id">
                                     <option v-for="department in departments" :value="department.id" :key="department.id">{{department.name}}</option>
                                 </select>
-                                                                <span class="text-danger" v-if="errors.department_id">{{ errors.department_id[0] }}</span>
-
+                                <span class="text-danger" v-if="errors.department_id">{{ errors.department_id[0] }}</span>
                             </div>
-
                         </form>
                     </div>
                     <div class="modal-footer">
