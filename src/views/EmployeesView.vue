@@ -4,7 +4,7 @@
     <main>
         <h1>Employees</h1>
 
-        <div class="card emp" style="width: 1000px;">
+        <div class="card emp" style="width: 1100px;">
             <div class="card-header">
                 Employees Managment
 
@@ -41,6 +41,10 @@
                             <td>{{ employee.job }}</td>
                             <td>{{ employee.salary }}</td>
                             <td>{{ employee.name }}</td>
+                            <td>
+                                <button type="button" class="btn btn-danger">Delete</button>
+                                <router-link to="/fefuf" class="btn btn-warning">Update</router-link>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
