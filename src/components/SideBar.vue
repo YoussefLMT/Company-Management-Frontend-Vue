@@ -27,7 +27,7 @@
             <span class="material-icons">badge</span>
             <span class="text">Deprtments</span>
         </router-link>
-        <router-link to="/profle" class="link">
+        <router-link to="/profile" class="link">
             <span class="material-icons">manage_accounts</span>
             <span class="text">Profile</span>
         </router-link>
