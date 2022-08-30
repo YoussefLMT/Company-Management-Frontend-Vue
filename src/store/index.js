@@ -4,7 +4,9 @@ export default createStore({
   state: {
     user:{
         token: localStorage.getItem('token'),
-    }
+    },
+    employees: [],
+    loading: false
   },
   getters: {
   },
