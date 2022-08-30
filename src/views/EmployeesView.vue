@@ -10,6 +10,9 @@
             </div>
             <div class="card-body">
                 <table class="table">
+                    <div v-if="loading" class="spinner">
+                        <ClipLoader />
+                    </div>
                     <thead>
                         <tr>
                             <th scope="col">id</th>
@@ -45,23 +48,23 @@
 
 <script>
 import SideBar from '../components/SideBar'
-import PulseLoader from 'vue-spinner/src/PulseLoader.vue'
+import ClipLoader from 'vue-spinner/src/ClipLoader.vue'
 import store from '@/store'
 
 export default {
     components: {
         SideBar,
-        PulseLoader
+        ClipLoader
     },
-    mounted(){
+    mounted() {
         store.dispatch('getEmployees')
     },
-    computed:{
-        employees(){
+    computed: {
+        employees() {
             return store.getters.employees
         },
 
-        loading(){
+        loading() {
             return store.getters.loading
         }
     }
@@ -85,6 +88,12 @@ export default {
 
 .btn-add {
     float: right
+}
+
+.spinner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 @media (max-width: 768px) {
