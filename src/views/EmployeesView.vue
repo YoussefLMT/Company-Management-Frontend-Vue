@@ -24,15 +24,15 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th scope="row">4</th>
-                            <td>test</td>
-                            <td>test</td>
-                            <td>test</td>
-                            <td>test</td>
-                            <td>test</td>
-                            <td>test</td>
-                            <td>test</td>
+                        <tr v-for="employee in employees" :key="employee.id">
+                            <th scope="row">{{ employee.id }}</th>
+                            <td>{{ employee.first_name }}</td>
+                            <td>{{ employee.last_name }}</td>
+                            <td>{{ employee.email }}</td>
+                            <td>{{ employee.phone }}</td>
+                            <td>{{ employee.job }}</td>
+                            <td>{{ employee.salary }}</td>
+                            <td>{{ employee.name }}</td>
                         </tr>
                     </tbody>
                 </table>
