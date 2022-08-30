@@ -11,27 +11,27 @@
                 <form>
                     <div class="mb-3">
                         <label for="fname" class="form-label">First Name</label>
-                        <input type="text" class="form-control" id="fname" >
+                        <input type="text" class="form-control" id="fname" v-model="customer.first_name">
                     </div>
                     <div class="mb-3">
                         <label for="lname" class="form-label">Last Name</label>
-                        <input type="text" class="form-control" id="lname" >
+                        <input type="text" class="form-control" id="lname" v-model="customer.last_name">
                     </div>
                     <div class="mb-3">
                         <label for="email" class="form-label">Email</label>
-                        <input type="text" class="form-control" id="email" >
+                        <input type="text" class="form-control" id="email" v-model="customer.email">
                     </div>
                     <div class="mb-3">
                         <label for="phone" class="form-label">Phone</label>
-                        <input type="text" class="form-control" id="phone" >
+                        <input type="text" class="form-control" id="phone" v-model="customer.phone">
                     </div>
                     <div class="mb-3">
                         <label for="job" class="form-label">Job</label>
-                        <input type="text" class="form-control" id="job" >
+                        <input type="text" class="form-control" id="job" v-model="customer.job">
                     </div>
                     <div class="mb-3">
                         <label for="salary" class="form-label">Salary</label>
-                        <input type="text" class="form-control" id="salary" >
+                        <input type="text" class="form-control" id="salary" v-model="customer.salary">
                     </div>
                     <!-- <div class="mb-3">
                         <label class="form-label">Department</label>
@@ -50,6 +50,7 @@
 
 <script>
 import SideBar from '../components/SideBar'
+import axiosInstance from '../axios'
 
 export default {
     components: {
@@ -70,6 +71,16 @@ export default {
             errors: ''
         }
     },
+    methods: {
+        async getEmployee() {
+            try {
+                const response = await axiosInstance.get(`/get-employee/${this.$route.params.id}`)
+                this.employee = response.data.employee
+            } catch (error) {
+                console.log(error)
+            }
+        },
+    }
 }
 </script>
 
