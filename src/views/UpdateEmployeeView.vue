@@ -15,38 +15,33 @@
                     <div class="mb-3">
                         <label for="fname" class="form-label">First Name</label>
                         <input type="text" class="form-control" id="fname" v-model="employee[0].first_name">
-                                                <span class="text-danger" v-if="errors.first_name">{{ errors.first_name[0] }}</span>
+                        <span class="text-danger" v-if="errors.first_name">{{ errors.first_name[0] }}</span>
 
                     </div>
                     <div class="mb-3">
                         <label for="lname" class="form-label">Last Name</label>
                         <input type="text" class="form-control" id="lname" v-model="employee[0].last_name">
-                                                <span class="text-danger" v-if="errors.first_name">{{ errors.last_name[0] }}</span>
-
+                        <span class="text-danger" v-if="errors.first_name">{{ errors.last_name[0] }}</span>
                     </div>
                     <div class="mb-3">
                         <label for="email" class="form-label">Email</label>
                         <input type="text" class="form-control" id="email" v-model="employee[0].email">
-                                                <span class="text-danger" v-if="errors.first_name">{{ errors.email[0] }}</span>
-
+                        <span class="text-danger" v-if="errors.first_name">{{ errors.email[0] }}</span>
                     </div>
                     <div class="mb-3">
                         <label for="phone" class="form-label">Phone</label>
                         <input type="text" class="form-control" id="phone" v-model="employee[0].phone">
-                                                <span class="text-danger" v-if="errors.first_name">{{ errors.phone[0] }}</span>
-
+                        <span class="text-danger" v-if="errors.first_name">{{ errors.phone[0] }}</span>
                     </div>
                     <div class="mb-3">
                         <label for="job" class="form-label">Job</label>
                         <input type="text" class="form-control" id="job" v-model="employee[0].job">
-                                                <span class="text-danger" v-if="errors.first_name">{{ errors.job[0] }}</span>
-
+                        <span class="text-danger" v-if="errors.first_name">{{ errors.job[0] }}</span>
                     </div>
                     <div class="mb-3">
                         <label for="salary" class="form-label">Salary</label>
                         <input type="text" class="form-control" id="salary" v-model="employee[0].salary">
-                                                <span class="text-danger" v-if="errors.first_name">{{ errors.salary[0] }}</span>
-
+                        <span class="text-danger" v-if="errors.first_name">{{ errors.salary[0] }}</span>
                     </div>
                     <!-- <div class="mb-3">
                         <label class="form-label">Department</label>
