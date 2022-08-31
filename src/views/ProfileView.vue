@@ -40,6 +40,14 @@ export default {
     components: {
         SideBar
     },
+    data() {
+        return {
+            name: '',
+            email: '',
+            newPassword: '',
+            newPasswordConfirmation: ''
+        }
+    }
 }
 </script>
 
