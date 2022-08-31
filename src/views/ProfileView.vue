@@ -49,6 +49,9 @@ export default {
             newPasswordConfirmation: ''
         }
     },
+    mounted(){
+        this.getProfile()
+    },
     methods: {
         async getProfile() {
             try {
