@@ -49,14 +49,16 @@ export default {
             newPasswordConfirmation: ''
         }
     },
-    mounted(){
+    mounted() {
         this.getProfile()
     },
     methods: {
         async getProfile() {
             try {
                 const response = await axiosInstance.get('/get-profile')
-                console.log(response.data)
+                this.name = response.data.user.name
+                this.email = response.data.user.email
+                
             } catch (error) {
                 console.log(error)
             }
