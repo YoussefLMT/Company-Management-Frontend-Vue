@@ -15,9 +15,6 @@
             </div>
             <div class="card-body">
                 <table class="table">
-                    <!-- <div v-if="loading" class="spinner">
-                        <ClipLoader />
-                    </div> -->
                     <thead>
                         <tr>
                             <th scope="col">id</th>
@@ -31,7 +28,10 @@
                             <th scope="col">actions</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <div v-if="loading" class="spinner">
+                        <ClipLoader />
+                    </div>
+                    <tbody v-else>
                         <tr v-for="employee in employees" :key="employee.id">
                             <th scope="row">{{ employee.id }}</th>
                             <td>{{ employee.first_name }}</td>
