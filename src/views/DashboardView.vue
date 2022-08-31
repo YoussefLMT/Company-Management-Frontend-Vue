@@ -7,7 +7,7 @@
             <div class="col-md-4">
                 <div class="card">
                     <div class="card-body">
-                        Employyes
+                        <h5> Employyes:</h5>
                         <span class="material-icons">engineering</span>
                     </div>
                 </div>
@@ -16,7 +16,7 @@
             <div class="col-md-4">
                 <div class="card">
                     <div class="card-body">
-                        Customrs
+                        <h5>Customers:</h5>
                         <span class="material-icons">group</span>
                     </div>
                 </div>
@@ -25,7 +25,7 @@
             <div class="col-md-4">
                 <div class="card">
                     <div class="card-body">
-                        Departments
+                        <h5>Departments:</h5>
                         <span class="material-icons">badge</span>
                     </div>
                 </div>
@@ -45,7 +45,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .app {
     display: flex;
     background: var(--light);
@@ -54,6 +54,24 @@ export default {
 .app main {
     flex: 1 1 0;
     padding: 32px;
+}
+
+.material-icons {
+    font-size: 50px;
+}
+
+h5 {
+    font-weight: bold;
+}
+
+.card {
+    width: 350px;
+}
+
+.card-body {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 @media (max-width: 768px) {
