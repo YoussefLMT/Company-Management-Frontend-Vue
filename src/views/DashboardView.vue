@@ -7,7 +7,7 @@
             <div class="col-md-4">
                 <div class="card">
                     <div class="card-body">
-                        <h5> Employyes:</h5>
+                        <h5> Employyes: {{ employeesCount }}</h5>
                         <span class="material-icons">engineering</span>
                     </div>
                 </div>
@@ -16,7 +16,7 @@
             <div class="col-md-4">
                 <div class="card">
                     <div class="card-body">
-                        <h5>Customers:</h5>
+                        <h5>Customers: {{ customersCount }}</h5>
                         <span class="material-icons">group</span>
                     </div>
                 </div>
@@ -25,7 +25,7 @@
             <div class="col-md-4">
                 <div class="card">
                     <div class="card-body">
-                        <h5>Departments:</h5>
+                        <h5>Departments: {{ departmentsCount }}</h5>
                         <span class="material-icons">badge</span>
                     </div>
                 </div>
