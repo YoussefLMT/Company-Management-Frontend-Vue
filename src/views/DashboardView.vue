@@ -37,16 +37,34 @@
 
 <script>
 import SideBar from '../components/SideBar'
+import axiosInstance from '../axios'
 
 export default {
     components: {
         SideBar
     },
-    data(){
-        return{
+    data() {
+        return {
             employeesCount: '',
             customersCount: '',
             departmentsCount: ''
+        }
+    },
+    mounted() {
+        this.getTotalCount()
+    },
+    methods: {
+        async getTotalCount() {
+            try {
+                const response = await axiosInstance.get("/statistics")
+
+                this.employeesCount = response.data.employeesCount
+                this.customersCount = response.data.customersCount
+                this.departmentsCount = response.data.departmentsCount
+
+            } catch (error) {
+                console.log(error)
+            }
         }
     }
 }
