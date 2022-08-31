@@ -3,7 +3,34 @@
     <SideBar />
     <main>
         <h1>Dashboard</h1>
-        <p>this is a dashboard page</p>
+        <div class="row mt-3">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        Employyes
+                        <span class="material-icons">engineering</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        Customrs
+                        <span class="material-icons">group</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        Departments
+                        <span class="material-icons">badge</span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
 </div>
 </template>
