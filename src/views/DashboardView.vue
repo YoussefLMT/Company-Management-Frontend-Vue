@@ -41,6 +41,13 @@ import SideBar from '../components/SideBar'
 export default {
     components: {
         SideBar
+    },
+    data(){
+        return{
+            employeesCount: '',
+            customersCount: '',
+            departmentsCount: ''
+        }
     }
 }
 </script>
