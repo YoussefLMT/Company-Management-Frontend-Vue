@@ -2,7 +2,7 @@
 <div class="app">
     <SideBar />
     <main>
-        <h3>Welcome ahmed</h3>
+        <h3>Welcome {{ name }}</h3>
         <div class="card profile" style="width: 800px;">
             <div class="card-header">
                 Profile Managment
