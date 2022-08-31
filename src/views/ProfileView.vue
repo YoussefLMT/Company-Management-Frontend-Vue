@@ -9,13 +9,18 @@
             </div>
             <div class="card-body">
                 <form>
+                    <div class="alert alert-success" v-if="message">
+                        {{ message }}
+                    </div>
                     <div class="mb-3">
                         <label for="name" class="form-label">Name</label>
                         <input type="text" class="form-control" id="name" v-model="name">
+                        <span class="text-danger" v-if="errors.name">{{ errors.name[0] }}</span>
                     </div>
                     <div class="mb-3">
                         <label for="email" class="form-label">Email</label>
                         <input type="email" class="form-control" id="email" v-model="email">
+                        <span class="text-danger" v-if="errors.email">{{ errors.email[0] }}</span>
                     </div>
                     <div class="mb-3">
                         <label for="password" class="form-label">New Password</label>
@@ -25,7 +30,7 @@
                         <label for="password_conf" class="form-label">New Password Confirmation</label>
                         <input type="password" class="form-control" id="password_conf" v-model="newPasswordConfirmation">
                     </div>
-                    <button type="button" class="btn btn-primary">Update Profile</button>
+                    <button type="button" @click="updateProfile" class="btn btn-primary">Update Profile</button>
                 </form>
             </div>
         </div>
@@ -46,7 +51,9 @@ export default {
             name: '',
             email: '',
             newPassword: '',
-            newPasswordConfirmation: ''
+            newPasswordConfirmation: '',
+            message: '',
+            errors: ''
         }
     },
     mounted() {
@@ -58,7 +65,27 @@ export default {
                 const response = await axiosInstance.get('/get-profile')
                 this.name = response.data.user.name
                 this.email = response.data.user.email
-                
+
+            } catch (error) {
+                console.log(error)
+            }
+        },
+
+        async updateProfile() {
+            try {
+                const response = await axiosInstance.put('/update-profile', {
+                    name: this.name,
+                    email: this.email,
+                    password: this.newPassword
+                })
+
+                if (response.data.status === 200) {
+                    this.message = response.data.message
+
+                } else {
+                    this.errors = response.data.validation_err
+                }
+
             } catch (error) {
                 console.log(error)
             }
